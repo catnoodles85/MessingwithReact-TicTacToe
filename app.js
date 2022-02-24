@@ -1,10 +1,19 @@
+
+
+//Square component
 function Square({onClick, value}){
     return(
-        <button classname = "square" onClick={onClick}>
-            {value}
-            </button>    
-            );
-        }
+        <button className = "square" onClick={onClick}>
+             {value}
+                </button>    
+                 );
+}
+ReactDOM.render(
+    <Board />,
+    document.getElementById("root")
+    )   
+    
+
 //Board component
 function Board(){
     const [squares, setSquares] = React.useState(Array(9).fill(null));
@@ -16,7 +25,7 @@ function Board(){
         }
         squares[i] = isX? 'X' : 'O'
         setSquares(squares)
-        setIsx(!isX)
+        setIsX(!isX)
     }
 
     const winner = calculateWinner(squares)
@@ -30,7 +39,7 @@ function Board(){
 
     const handleRestart = () =>{
         setIsX(true);
-        setSquares(Arrya(9).fill(null))
+        setSquares(Array(9).fill(null))
     }
 
     const renderSquare = (i) => {
@@ -60,9 +69,6 @@ function Board(){
     )
 }
 
-
-
-
 //Helper Function to calculate winner
 function calculateWinner(squares){
     const winningPatterns = [
@@ -81,6 +87,6 @@ for (let index = 0; index < winningPatterns.length; index ++){
     if(squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
         return squares[a];
     }
+    return null;
 }
-return null;
 }
