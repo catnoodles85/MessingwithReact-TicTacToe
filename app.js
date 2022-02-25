@@ -8,31 +8,33 @@ function Square({onClick, value}){
                 </button>    
                  );
 }
-ReactDOM.render(
+    ReactDOM.render(
     <Board />,
     document.getElementById("root")
-    )   
-    
+    );   
 
-//Board component
+    
+    
+        //Board component
 function Board(){
     const [squares, setSquares] = React.useState(Array(9).fill(null));
     const [isX, setIsX] = React.useState(true);
-
+            
     const handleClick = (i) => {
         if(calculateWinner(squares) || squares[i]){
-            return
-        }
+          return
+       }
         squares[i] = isX? 'X' : 'O'
         setSquares(squares)
         setIsX(!isX)
-    }
-
+     }
+            
+        
     const winner = calculateWinner(squares)
     let status
 
     if(winner){
-        status = 'Winner: ${winner}';
+        status = 'Winner!';
     } else {
         status = 'Next player:' + (isX? 'X' : 'O');
     }
@@ -69,6 +71,7 @@ function Board(){
     )
 }
 
+
 //Helper Function to calculate winner
 function calculateWinner(squares){
     const winningPatterns = [
@@ -87,6 +90,6 @@ for (let index = 0; index < winningPatterns.length; index ++){
     if(squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
         return squares[a];
     }
-    return null;
 }
+return null;
 }
