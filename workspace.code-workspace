@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\Font collection"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "MessingwithReact-TicTacToe"
+	}
+}
